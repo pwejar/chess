@@ -1,3 +1,51 @@
 <ion-app>
   <ion-router-outlet></ion-router-outlet>
+  <div id="containerMain">
+    <div class="loginCOnt">
+      <img src="/assets/icon/logo_black.svg" alt="">
+     <ion-list class="bg-transparent">
+      <ion-item color="none" lines="none">
+        <div class="signInwith" (click)="google()">
+          <svg id="google" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+            viewBox="0 0 20000 20000"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+          <g id="Layer_x0020_1">
+          <metadata id="CorelCorpID_0Corel-Layer"/>
+          <path class="fil0 str0" d="M16512.16 8772.35c1330.44,10371.94 -12789.97,10499.32 -13124.76,1279.28 -142.42,-3922.13 4520.19,-9665.24 11246.94,-5152.71l-1962.28 1984.1c-3170.55,-2300.88 -6709.53,93.4 -6500.13,3475.43 164.31,4118.23 6866.88,5228.54 7585.87,1014.44l-3605.57 0 0 -2630.54 6359.93 30z"/>
+          </g>
+          </svg>
+          <p><b>{{sign}} with Google</b></p>
+        </div>
+      </ion-item>
+      <ion-item color="none" lines="none" >
+        <p style="margin: 0 auto;">------------ or ------------</p>
+      </ion-item>
+       <ion-item color="none">
+         <ion-label position="floating">Email<ion-text>*</ion-text></ion-label>
+         <ion-input id="theEmail" type="email" [(ngModel)]="email" (focusout)="validateEmail(email)"></ion-input>
+       </ion-item>
+       <ion-item color="none" *ngIf="logss1 !== 'Reset Password'">
+        <ion-label position="floating">Password<ion-text>*</ion-text></ion-label>
+        <ion-input [type]="passwordType" [(ngModel)]="pass" (focusout)="validatePass(email)"></ion-input>
+        <ion-icon slot="end" [name]="passwordIcon" class="passwordIcon" (click)='hideShowPassword()'></ion-icon>
+      </ion-item>
+       <ion-item color="none" *ngIf="logss === 'Login' && logss1 !== 'Reset Password'">
+         <ion-label position="floating">Confirm Password<ion-text>*</ion-text></ion-label>
+         <ion-input [type]="passwordType" [(ngModel)]="passC" (focusout)="passMatch()"></ion-input>
+         <ion-icon slot="end" [name]="passwordIcon" class="passwordIcon" (click)='hideShowPassword()'></ion-icon>
+       </ion-item>
+       <ion-item color="none" lines="none" *ngIf="logss1 !== 'Reset Password'">
+        <span (click)="login(1)"><u>Reset Password</u></span>
+      </ion-item>
+       <ion-item color="none" lines="none">
+         <div class="buttons"(click)="loginOg()"><p>{{ logss1 }}</p></div>
+       </ion-item>
+       <ion-item color="none" lines="none">
+         <span (click)="login(2)"><u> {{ logss }}</u></span>
+       </ion-item>
+     </ion-list>
+     <img src="/assets/icon/closing.svg" id="closing" alt="" (click)="closeIt()">
+   </div>
+  </div>
 </ion-app>

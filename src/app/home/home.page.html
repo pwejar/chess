@@ -1,20 +1,140 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+<ion-content >
+  <div class="headerCont">
+    <div class="logo">
+      <img src="/assets/icon/conerThing.svg" alt="">
+      <img id="theLogo"src="/assets/icon/logo.svg" alt="">
+      <h3>Kilifi Chess</h3>
+    </div>
+    <div></div>
+    <span>login:</span>
+    <span>Community</span>
+  </div>
+  <div class="contentCont">
+    <div class="ofTheDayCont">
+      <div class="gamePuzzle">
+        <span routerLink="/play">Play</span>
+        <span>Puzzles</span>
+      </div>
+      <div class="board" id="board1">
+        <div *ngFor="let cell of cells" [ngClass]="getSomeClass(cell.id)" (drop)="drop($event, cell)" 
+        (dragover)="allowDrop($event)" (click)="wekaShadow(cell.id)" [id]="cell.id" class="cellit" >
+          <img  [src]="cell.piece" alt="" [id]="cell.id+'2'" draggable="true" 
+          (dragstart)="drag($event, cell)">
+          <span *ngIf="cell.alphabert === 'h'" class="namba">{{cell.namba}}</span>
+          <span *ngIf="cell.namba === 1" class="alpha">{{cell.alphabert}}</span>
+          <div class="possible" [id]="cell.id+'1'"></div>
+        </div>
+        <div class="quening" id="queningW">
+          <img src="/assets/chess/qw.svg" (click)="queening('/assets/chess/qw.svg')">
+          <img src="/assets/chess/rw.svg" (click)="queening('/assets/chess/rw.svg')">
+          <img src="/assets/chess/bw.svg" (click)="queening('/assets/chess/bw.svg')">
+          <img src="/assets/chess/nw.svg" (click)="queening('/assets/chess/nw.svg')">
+        </div>
+        <div class="quening" id="queningB">
+          <img src="/assets/chess/qb.svg" (click)="queening('/assets/chess/qb.svg')">
+          <img src="/assets/chess/rb.svg" (click)="queening('/assets/chess/rb.svg')">
+          <img src="/assets/chess/bb.svg" (click)="queening('/assets/chess/bb.svg')">
+          <img src="/assets/chess/nb.svg" (click)="queening('/assets/chess/nb.svg')">
+        </div>
+        <img src="" id="movingPiece">
+      </div>
+      <div></div>
+    </div>
+    <div class="displayCont">
+      <div class="darkBackground">
+        <div class="slider" id="theSlider1">
+          <div class="slides" id="lastClone"
+        style="background-image: url(/assets/photos/a8.jpg);">
+        <p>Markuti Villas Resort Chess Retreat</p>
+      
+      </div>
+          <div class="slides" 
+          style="background-image: url(/assets/photos/a2.jpg);">
+          <p>St. Thomas Girls High School Chess Camp</p>
+        
+        </div>
+        <div class="slides" 
+        style="background-image: url(/assets/photos/a11.jpg);">
+        <p>Pwani University Evening Coaching</p>
+      
+      </div>
+      <div class="slides" 
+        style="background-image: url(/assets/photos/a15.jpg);">
+        <p>Baobab Beach Chess Mass Sunday</p>
+      
+      </div>
+      <div class="slides" 
+        style="background-image: url(/assets/photos/a9.jpg);">
+        <p>Kivukoni International School Junior Tournament</p>
+      
+      </div>
+      <div class="slides" 
+        style="background-image: url(/assets/photos/a13.jpg);">
+        <p>Mombasa Opens Chess Tournament</p>
+      
+      </div>
+      <div class="slides" 
+        style="background-image: url(/assets/photos/a8.jpg);">
+        <p>Markuti Villas Resort Chess Retreat</p>
+      
+      </div>
+      <div class="slides" id="firstClone"
+          style="background-image: url(/assets/photos/a2.jpg);">
+          <p>St. Thomas Girls High School Chess Camp</p>
+        
+        </div>
+          
+        </div>
+        <a  class="previous round">&#8249;</a>
+        <a  class="next round">&#8250;</a>
+      </div>
+      <div></div>
+      <div></div>
+      <div class="darkBackground">
+        <div class="slider" id="theSlider2">
+          <div class="slides" id="lastClone"
+        style="background-image: url(/assets/photos/a8.jpg);">
+        <p>Markuti Villas Resort Chess Retreat</p>
+      
+      </div>
+          <div class="slides" 
+          style="background-image: url(/assets/photos/a2.jpg);">
+          <p>St. Thomas Girls High School Chess Camp</p>
+        
+        </div>
+        <div class="slides" 
+        style="background-image: url(/assets/photos/a11.jpg);">
+        <p>Pwani University Evening Coaching</p>
+      
+      </div>
+      <div class="slides" 
+        style="background-image: url(/assets/photos/a15.jpg);">
+        <p>Baobab Beach Chess Mass Sunday</p>
+      
+      </div>
+      <div class="slides" 
+        style="background-image: url(/assets/photos/a9.jpg);">
+        <p>Kivukoni International School Junior Tournament</p>
+      
+      </div>
+      <div class="slides" 
+        style="background-image: url(/assets/photos/a13.jpg);">
+        <p>Mombasa Opens Chess Tournament</p>
+      
+      </div>
+      <div class="slides" 
+        style="background-image: url(/assets/photos/a8.jpg);">
+        <p>Markuti Villas Resort Chess Retreat</p>
+      
+      </div>
+      <div class="slides" id="firstClone"
+          style="background-image: url(/assets/photos/a2.jpg);">
+          <p>St. Thomas Girls High School Chess Camp</p>
+        
+        </div>
+          
+        </div>
+      </div>
+    </div>
   </div>
 </ion-content>
